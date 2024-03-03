@@ -1,5 +1,5 @@
 # Data Pipelines with Concurrency
-### Assignment Requirements
+For this assignment, students have been tasked with replicating a data pipeline example to help in exploring the possibilities of concurrency. The assignment consisted of the following steps:
 - Clone the GitHub repository for image processing. 
 - Build and run the program in its original form.
 - Add error checking for image file input and output.
@@ -9,3 +9,8 @@
 - Make additional code modifications as you see fit.
 - Build, test, and run the pipeline program.
 - Prepare a complete README.md file documenting your work.
+### Error Checking
+### Images Chosen
+### Unit Testing
+### Benchmark Methods
+### Additional Code Modifications
