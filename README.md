@@ -1,5 +1,11 @@
-# Episode #21: Concurrency in Go: Pipeline Pattern
-
-[Episode link](https://www.codeheim.io/courses/Episode-21-Concurrency-in-Go-Pipeline-Pattern-65c3ca14e4b0628a4e002201)
-
-Requires Golang 1.20 or higher.
+# Data Pipelines with Concurrency
+### Assignment Requirements
+- Clone the GitHub repository for image processing. 
+- Build and run the program in its original form.
+- Add error checking for image file input and output.
+- Replace the four input image files with files of your choosing.
+- Add unit tests to the code repository.
+- Add benchmark methods for capturing pipeline throughput times.
+- Make additional code modifications as you see fit.
+- Build, test, and run the pipeline program.
+- Prepare a complete README.md file documenting your work.
