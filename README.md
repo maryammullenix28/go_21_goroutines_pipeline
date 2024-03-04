@@ -21,3 +21,6 @@ The unit test written assess the functionality of three key functions in the pro
 ### Benchmark Methods
 Similar to unit testing, the benchmark methods assessed the core functions of the program, read, write, grayscale, and resize. The total benchmarking program took 0.739s to run and pass all benchmarks.
 ### Additional Code Modifications
+One of my previous employers offered a similar image transformation function within our application. The program enabled users to run image transformations in bulk. On ekey aspect of this would be that any errors or failures to specific images would be raised, but not terminate the entire operation. I decided to incorporate similar functionality into this program, where one bad image path would not terminate the entire run. To do so, I modified two key areas: the readImage() function in `image_processing` and the loadImage() function in `main`.
+- I took out the panic() clauses which causes the program to exit if an error occurs.
+- Then, I modified loadImage() so that an error is logged, but the loop continues so that other images can successfully run without having to fix the one image beforehand.
