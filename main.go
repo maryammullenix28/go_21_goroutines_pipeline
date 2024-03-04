@@ -4,6 +4,7 @@ import (
 	"fmt"
 	imageprocessing "goroutines_pipeline/image_processing"
 	"image"
+	"log"
 	"strings"
 )
 
@@ -13,6 +14,22 @@ type Job struct {
 	OutPath   string
 }
 
+// func loadImage(paths []string) <-chan Job {
+// 	out := make(chan Job)
+// 	go func() {
+// 		// For each input path create a job and add it to
+// 		// the out channel
+// 		for _, p := range paths {
+// 			job := Job{InputPath: p,
+// 				OutPath: strings.Replace(p, "images/", "images/output/", 1)}
+// 			job.Image = imageprocessing.ReadImage(p)
+// 			out <- job
+// 		}
+// 		close(out)
+// 	}()
+// 	return out
+// }
+
 func loadImage(paths []string) <-chan Job {
 	out := make(chan Job)
 	go func() {
@@ -21,7 +38,13 @@ func loadImage(paths []string) <-chan Job {
 		for _, p := range paths {
 			job := Job{InputPath: p,
 				OutPath: strings.Replace(p, "images/", "images/output/", 1)}
-			job.Image = imageprocessing.ReadImage(p)
+			img, err := imageprocessing.ReadImage(p)
+			if err != nil {
+				// Log the error and continue to the next image
+				log.Printf("Error loading image at path %s: %v", p, err)
+				continue
+			}
+			job.Image = img
 			out <- job
 		}
 		close(out)
@@ -69,10 +92,11 @@ func saveImage(input <-chan Job) <-chan bool {
 
 func main() {
 
-	imagePaths := []string{"images/image1.jpeg",
-		"images/image2.jpeg",
-		"images/image3.jpeg",
-		"images/image4.jpeg",
+	imagePaths := []string{"images/IMG_0259.jpeg",
+		"images/IMG_2077.jpeg",
+		"images/wrongpath.jpeg",
+		"images/IMG_1753.jpeg",
+		"images/IMG_2768.jpeg",
 	}
 
 	channel1 := loadImage(imagePaths)
