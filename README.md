@@ -19,5 +19,5 @@ The unit test written assess the functionality of three key functions in the pro
 - `TestWriteImage` assesses that the WriteImage function correctly writes an image file to the specified path.
 - `TestResize` looks at the Resize function so that it correctly resizes an image to 500x500 pixels.
 ### Benchmark Methods
-
+Similar to unit testing, the benchmark methods assessed the core functions of the program, read, write, grayscale, and resize. The total benchmarking program took 0.739s to run and pass all benchmarks.
 ### Additional Code Modifications
